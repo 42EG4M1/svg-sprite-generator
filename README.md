@@ -1,6 +1,6 @@
 # svg-sprite-generator
 
-SVGスプライトを自動で生成します。同時にスプライトの一覧も作成します。  
+SVGスプライトを自動で生成します。同時にスプライトの一覧が見れるHTMLも作成します。  
 Gulpを使用していますが、グローバルへのGulpインストールは不要です。
 
 
@@ -11,21 +11,21 @@ Gulpを使用していますが、グローバルへのGulpインストールは
 
 ## Getting Started
 
-### 1) clone
+### 1. clone
 
 プロジェクトディレクトリへ移動してクローン
 
     $ git clone git@github.com:42EG4M1/svg-sprite-generator.git
 
 
-### 2) install npm packages
+### 2. install npm packages
 
 パッケージをインストール
 
     $ npm i
 
 
-### 3) build
+### 3. build
 
 以下のコマンドでタスクを実行（watchなし）
 
@@ -41,8 +41,7 @@ Gulpを使用していますが、グローバルへのGulpインストールは
 - 各SVGファイルを一つのSVGにまとめ、余分な要素（id、class、style、fill等）を削除
 - スプライトのリスト（`_sample.html`）を作成
 
-※生成されるSVGスプライトは、HTML用（インライン用）のもので、色（fill）や線（stroke）等は、CSSで調整する必要があります。  
-(すべてのスタイルを削除するため、CSSの`background`で表示させることはできません)
+※生成されるSVGスプライトは、HTML用（インライン用）のもので、色（fill）や線（stroke）等は、CSSで調整する必要があります。(CSSの`background`で表示させることはできません)
 
 
 ## How to Use
@@ -88,7 +87,7 @@ SVG画像をインラインとしてHTMLに表示する際は、スプライト�
     [ HTML ]
     <svg class="svg-icon"><use xlink:href="#example1"/></svg>
 
-※上記の方法で表示させる場合は、作成したSVGスプライトの読み込みが必要になります。読み込み方法等の詳細は、以下のリンク先ページで確認できます。  
+※上記の方法で表示させる場合は、作成したSVGスプライトをHTMLへ読み込ませる必要があります。読み込み方法等の詳細は、以下のリンク先ページを参考にしてください。  
 
 [外部SVGファイルを非同期で読み込み、インラインのSVGスプライトとして利用する](http://theorthodoxworks.com/web-design/svg-sprite-async-load/)
 
