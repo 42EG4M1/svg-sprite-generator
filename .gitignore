@@ -1,0 +1,8 @@
+node_modules
+.sass-cache
+*.log
+dist
+_dump
+
+.DS_Store
+_sample.html
