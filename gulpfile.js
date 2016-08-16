@@ -17,27 +17,31 @@ gulp.task('svg', () => {
   .pipe($.svgmin())
   .pipe($.svgstore({ inlineSvg: true }))
   .pipe($.cheerio(($, file) => {
-    // スプライト全体を非表示（読み込み時）
+    // 不要なタグを削除
+    $('style,title,defs').remove();
+    // symbolタグ以外のid属性を削除
+    $('[id]:not(symbol)').removeAttr('id');
+    // Illustratorで付与される「st」と「cls」ではじまるclass属性を削除
+    $('[class^="st"],[class^="cls"]').removeAttr('class');
+    // svgタグ以外のstyle属性を削除
+    $('[style]:not(svg)').removeAttr('style');
+    // data-name属性を削除
+    $('[data-name]').removeAttr('data-name');
+    // fill属性を削除
+    $('[fill]').removeAttr('fill');
+    // svgタグにdisplay:noneを付与（読み込み時、スプライト全体を非表示にするため）
     $('svg').attr({
       style: 'display:none'
     });
-    // symbolタグ以外のIDを削除
-    $('[id]:not(symbol)').removeAttr('id');
-    // （classが重複するため）Illustratorのstyleは使えないので削除
-    $('style').remove();
-    // Illustratorで付与されるclassを削除
-    $('[class ^= "st"]').removeAttr('class');
-    // 属性としてfillが使われることはない（ccでは）が念のため削除
-    $('[fill]').removeAttr('fill');
 
-    // sample.htmlに渡す変数
+    // _base.htmlに渡すid
     const symbols = $('svg > symbol').map(function() {
       return {
         id: $(this).attr('id')
       };
     }).get();
 
-    // sample.htmlをルートに生成
+    // _sample.htmlをルートに生成
     const temp   = require('gulp-template');
     const rename = require('gulp-rename');
     gulp.src(paths.html)
@@ -46,8 +50,7 @@ gulp.task('svg', () => {
       symbols: symbols
     }))
     .pipe(rename('_sample.html'))
-    .pipe(gulp.dest('./'))
-
+    .pipe(gulp.dest('./'));
   }))
 
   .pipe($.rename('sprite.min.svg'))

@@ -18,9 +18,9 @@ Gulpを使用していますが、グローバルへのGulpインストールは
     $ git clone git@github.com:42EG4M1/svg-sprite-generator.git
 
 
-### 2. install npm packages
+### 2. install plugins
 
-パッケージをインストール
+プラグインをインストール
 
     $ npm i
 
@@ -48,8 +48,8 @@ Gulpを使用していますが、グローバルへのGulpインストールは
 
 Illustratorで作成したSVGファイルを`./src/assets/images/svg/`の中に設置し、`$ npm run build`でタスクを実行するだけです。  
 
-※Illustratorで作成されたSVGファイルを基準としています。  
-※SVGファイルを作成する際、Illustrator上で`command+c`して、エディタの新規ファイルで`command+v`した場合、最終__空白行__の削除を行ってください。
+※Adobe Illustrator CCで作成されたSVGファイルを基準としています。  
+※基本的に保存方法は問いませんが、`comand + c`でコピーし、エディタの新規ファイルで`command + vで`貼り付けて保存する方法を推奨します。この場合、最終の__空白行__を必ず削除するようにしてください。
 
 
 ### Directory
@@ -90,6 +90,12 @@ SVG画像をインラインとしてHTMLに表示する際は、スプライト�
 ※上記の方法で表示させる場合は、作成したSVGスプライトをHTMLへ読み込ませる必要があります。読み込み方法等の詳細は、以下のリンク先ページを参考にしてください。  
 
 [外部SVGファイルを非同期で読み込み、インラインのSVGスプライトとして利用する](http://theorthodoxworks.com/web-design/svg-sprite-async-load/)
+
+## Detailed
+
+詳細については、以下のブログに記載しています。
+
+[GulpでSVGスプライトを自動生成する](http://theorthodoxworks.com/front-end/svg-sprite-generator-with-gulp/)
 
 ## License
 MIT License
