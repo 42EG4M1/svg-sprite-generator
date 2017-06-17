@@ -3,10 +3,7 @@
 SVGスプライトを自動で生成します。同時にスプライトの一覧が見れるHTMLも作成します。  
 Gulpを使用していますが、グローバルへのGulpインストールは不要です。
 
-
-## Require
-
-- node.js
+sample : [https://42eg4m1.github.io/svg-sprite-generator/](https://42eg4m1.github.io/svg-sprite-generator/)
 
 
 ## Getting Started
@@ -20,14 +17,14 @@ Gulpを使用していますが、グローバルへのGulpインストールは
 
 ### 2. install plugins
 
-プラグインをインストール
+各npmプラグインをインストール
 
     $ npm i
 
 
 ### 3. build
 
-以下のコマンドでタスクを実行（watchなし）
+以下のコマンドでタスクを実行して**SVGスプライト**を生成（同時に`_sample.html`も生成される）
 
     $ npm run build
 
@@ -39,44 +36,41 @@ Gulpを使用していますが、グローバルへのGulpインストールは
 - 各SVGファイルを圧縮
 - `svg`タグを`symbol`タグに置き換え、ファイル名を`id`にセット
 - 各SVGファイルを一つのSVGにまとめ、余分な要素（id、class、style、fill等）を削除
-- スプライトのリスト（`_sample.html`）を作成
+- SVGスプライトの閲覧用HTML（`_sample.html`）を作成
 
-※生成されるSVGスプライトは、HTML用（インライン用）のもので、色（fill）や線（stroke）等は、CSSで調整する必要があります。(CSSの`background`で表示させることはできません)
+※生成されるSVGスプライトは、インライン用のものとなるので、色（fill）や線（stroke）等は、CSSで調整する必要があります。(CSSの`background`で表示させることはできません)
 
 
 ## How to Use
 
-Illustratorで作成したSVGファイルを`./src/assets/images/svg/`の中に設置し、`$ npm run build`でタスクを実行するだけです。  
+Illustratorで作成したSVGファイルを`./src/svg/`の中に設置し、`$ npm run build`でタスクを実行するだけです。  
 
 ※Adobe Illustrator CCで作成されたSVGファイルを基準としています。  
-※基本的に保存方法は問いませんが、`comand + c`でコピーし、エディタの新規ファイルで`command + vで`貼り付けて保存する方法を推奨します。この場合、最終の__空白行__を必ず削除するようにしてください。
+※基本的に保存方法は問いませんが、`comand + c`でコピーし、エディタの新規ファイルで`command + vで`貼り付けて保存する方法を推奨します。この場合、最終の**空白行**を必ず削除するようにしてください。
 
 
 ### Directory
 
-タスクを実行するとdistディレクトリが作成され、下層のimagesディレクトリに`sprite.min.svg`が生成されます。  
+タスクを実行すると`dist`ディレクトリが作成され、下層の`images`ディレクトリに`sprite.min.svg`が生成されます。  
 同時に`_sample.html`がルートに作成されます。
 
     /
-    ├── src
-    │   └── assets
-    │       └── images
-    │           └── svg
-    │               ├── _base.html
-    │               ├── example1.svg
-    │               ├── example2.svg
-    │               └── ...
-    ├── dist
-    │   └── assets
-    │       └── images
-    │           └── sprite.min.svg
+    ├── src/
+    │   └── svg/
+    │       ├── _base.html
+    │       ├── example1.svg
+    │       ├── example2.svg
+    │       └── ...
+    ├── dist/
+    │   └── images/
+    │       └── sprite.min.svg
     │
     ├── _sample.html
     │
     ├── ...
 
 
-`_sample.html`には画像の一覧が表示されます。スプライトに含めた画像を一目で確認できるとともに、HTMLへ表示する際の`id`を確認することができます。
+`_sample.html`には、SVGスプライト化された画像がリスト表示されています。どういった画像が含まれているか一目で確認できるとともに、HTMLへ表示する際の`id`を確認することができます。
 
 
 ### HTML
@@ -89,13 +83,13 @@ SVG画像をインラインとしてHTMLに表示する際は、スプライト�
 
 ※上記の方法で表示させる場合は、作成したSVGスプライトをHTMLへ読み込ませる必要があります。読み込み方法等の詳細は、以下のリンク先ページを参考にしてください。  
 
-[外部SVGファイルを非同期で読み込み、インラインのSVGスプライトとして利用する](http://theorthodoxworks.com/web-design/svg-sprite-async-load/)
+[外部SVGファイルを非同期で読み込み、インラインのSVGスプライトとして利用する](https://theorthodoxworks.com/web-design/svg-sprite-async-load/)
 
 ## Detailed
 
 詳細については、以下のブログに記載しています。
 
-[GulpでSVGスプライトを自動生成する](http://theorthodoxworks.com/front-end/svg-sprite-generator-with-gulp/)
+[GulpでSVGスプライトを自動生成する](https://theorthodoxworks.com/front-end/svg-sprite-generator-with-gulp/)
 
 ## License
 MIT License
