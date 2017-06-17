@@ -2,8 +2,8 @@ const gulp = require('gulp');
 const $    = require('gulp-load-plugins')();
 
 const dir = {
- src  : './src/assets/images/svg/',
- dest : './dist/assets/images/'
+ src  : './src/svg/',
+ dest : './dist/images/'
 }
 
 gulp.task('svg', () => {
