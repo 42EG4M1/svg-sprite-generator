@@ -57,7 +57,7 @@ Illustratorで作成したSVGファイルを`./src/svg/`の中に設置し、`$ 
     /
     ├── src/
     │   └── svg/
-    │       ├── _base.html
+    │       ├── _template.html
     │       ├── example1.svg
     │       ├── example2.svg
     │       └── ...
