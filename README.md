@@ -43,7 +43,7 @@ sample : [https://42eg4m1.github.io/svg-sprite-generator/](https://42eg4m1.githu
 
 ## How to Use
 
-Illustratorで作成したSVGファイルを`./src/svg/`の中に設置し、`$ npm run build`でタスクを実行するだけです。  
+Illustratorで作成したSVGファイルを`./src/svg/`の中に設置し、`$ npm run gulp`でタスクを実行するだけです。  
 
 ※Adobe Illustrator CCで作成されたSVGファイルを基準としています。  
 ※基本的に保存方法は問いませんが、`comand + c`でコピーし、エディタの新規ファイルで`command + vで`貼り付けて保存する方法を推奨します。この場合、最終の**空白行**を必ず削除するようにしてください。
