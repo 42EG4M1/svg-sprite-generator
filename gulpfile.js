@@ -6,15 +6,19 @@ const dir = {
  dest : './dist/images/'
 }
 
-gulp.task('svg', () => {
+gulp.task('svg', (cb) => {
 
   const paths = {
     svg  : dir.src + '*.svg',
-    html : dir.src + '_base.html'
+    html : dir.src + '_template.html'
   }
 
   gulp.src(paths.svg)
-  .pipe($.svgmin())
+  .pipe($.svgmin({
+    plugins: [{
+      removeViewBox: false
+    }]
+  }))
   .pipe($.svgstore({ inlineSvg: true }))
   .pipe($.cheerio({
     run: ($, file) => {
@@ -35,7 +39,7 @@ gulp.task('svg', () => {
         style: 'display:none'
       });
 
-      // _base.htmlに渡すid
+      // _template.htmlに渡すid
       const symbols = $('svg > symbol').map(function() {
         return {
           id: $(this).attr('id')
@@ -59,5 +63,6 @@ gulp.task('svg', () => {
   }))
   .pipe($.rename('sprite.min.svg'))
   .pipe(gulp.dest(dir.dest));
+  cb();
 
 });

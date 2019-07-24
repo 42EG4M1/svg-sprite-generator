@@ -26,7 +26,7 @@ sample : [https://42eg4m1.github.io/svg-sprite-generator/](https://42eg4m1.githu
 
 以下のコマンドでタスクを実行して**SVGスプライト**を生成（同時に`_sample.html`も生成される）
 
-    $ npm run build
+    $ npm run gulp
 
 
 ## Output
@@ -93,3 +93,6 @@ SVG画像をインラインとしてHTMLに表示する際は、スプライト�
 
 ## License
 MIT License
+
+## Update
+19.07.24 gulp4対応（パッケージ更新）
